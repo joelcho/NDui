@@ -939,12 +939,24 @@ table.insert(lib.glowList, "Proc Glow")
 lib.startList["Proc Glow"] = lib.ProcGlow_Start
 lib.stopList["Proc Glow"] = lib.ProcGlow_Stop
 
+-- Prevents actionbar buttons from glowing
+function lib.NoneGlow_Start(r, options)
+end
+
+function lib.NoneGlow_Stop(r, options)
+end
+
+table.insert(lib.glowList, "None")
+lib.startList["None"] = lib.NoneGlow_Start
+lib.stopList["None"] = lib.NoneGlow_Stop
+
 -- NDui
 local LCG_GlowList = {
 	[1] = "Pixel Glow",
 	[2] = "Autocast Shine",
 	[3] = "Action Button Glow",
 	[4] = "Proc Glow",
+	[5] = "None",
 }
 local function GetGlowType()
 	return LCG_GlowList[NDuiADB and NDuiADB.GlowMode or 3]
